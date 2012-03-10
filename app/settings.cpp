@@ -19,7 +19,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
-#include "Settings.h"
+#include "settings.h"
 #include <QSettings>
 #include <QDebug>
 
@@ -49,8 +49,6 @@ Settings::Settings(QObject *parent) : QObject(parent) {
 	windowWidth = s.value("window/width", 300).toInt();
 	windowHeight = s.value("window/height", 200).toInt();
 	format = (output_format_t)s.value("calc/format", DEC).toInt();
-
-	qDebug() << "load font:" << fontColor;
 }
 
 Settings::~Settings() {

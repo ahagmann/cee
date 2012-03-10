@@ -32,6 +32,11 @@ settingswindow::settingswindow(QWidget *parent) : QDialog(parent), ui(new Ui::se
 	refreshButtonColors();
 	ui->opacitySlider->setValue(settings->consoleOpacity);
 	ui->fontSizeSlider->setValue(settings->fontSize);
+
+#ifndef __APPLE__
+	ui->opacitySlider->setVisible(false);
+	ui->label_6->setVisible(false);
+#endif
 }
 
 settingswindow::~settingswindow() {

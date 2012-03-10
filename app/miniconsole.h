@@ -24,7 +24,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 #include <QPlainTextEdit>
 #include <QStringList>
-#include <Qstring>
+#include <QString>
 
 class MiniConsole : public QPlainTextEdit {
     Q_OBJECT

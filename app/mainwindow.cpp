@@ -25,9 +25,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #include "settingswindow.h"
 
 MainWindow::MainWindow(Calc &c, QWidget *parent) : m_c(c), QMainWindow(parent), ui(new Ui::MainWindow) {
-    ui->setupUi(this);
-	setAttribute(Qt::WA_TranslucentBackground);
+	ui->setupUi(this);
 
+#ifdef __APPLE__
+	setAttribute(Qt::WA_TranslucentBackground);
+#endif
 	Settings *settings = Settings::getInstance();
 	resize(settings->windowWidth, settings->windowHeight);
 
