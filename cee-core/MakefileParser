@@ -1,0 +1,23 @@
+
+L_FILES := scanner
+Y_FILES := parser
+
+C_FILES += $(L_FILES) $(Y_FILES) $(CPP_FILES)
+
+.SUFFIX:
+
+.PHONY: all clean parser
+
+all: parser
+
+%.c: %.y
+	bison -d -o $@ $<
+
+%.c: %.l $(addsuffix .c, $(Y_FILES))
+	flex --batch -o $@ $<
+
+parser:  $(addsuffix .c, $(L_FILES) $(Y_FILES))
+
+clean:
+	rm -f $(addsuffix .h, $(Y_FILES)) $(addsuffix .c, $(L_FILES) $(Y_FILES))
+
