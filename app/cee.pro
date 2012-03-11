@@ -13,10 +13,17 @@ TEMPLATE = app
 #  CONFIG -= app_bundle
 #}
 
+windows {
+	DEFINES += GUI_ONLY
+}
+else {
+	SOURCES += commandline.cpp
+	LIBS += -lreadline
+}
+
 INCLUDEPATH += ../cee-core
 LIBS += -L../cee-core
 LIBS += -lcee-core
-LIBS += -lreadline
 
 SOURCES += \
     settingswindow.cpp \
@@ -24,7 +31,6 @@ SOURCES += \
     miniconsole.cpp \
     mainwindow.cpp \
     main.cpp \
-    commandline.cpp
 
 HEADERS  += \
     settingswindow.h \

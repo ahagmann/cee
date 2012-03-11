@@ -28,7 +28,7 @@ MainWindow::MainWindow(Calc &c, QWidget *parent) : m_c(c), QMainWindow(parent), 
 	ui->setupUi(this);
 
 #ifdef __APPLE__
-	setAttribute(Qt::WA_TranslucentBackground);
+    setAttribute(Qt::WA_TranslucentBackground);
 #endif
 	Settings *settings = Settings::getInstance();
 	resize(settings->windowWidth, settings->windowHeight);
@@ -126,14 +126,19 @@ void MainWindow::reloadSettings() {
 							   QString::number(settings->backgroundColor.red())	+ "," +
 							   QString::number(settings->backgroundColor.green())	+ "," +
 							   QString::number(settings->backgroundColor.blue())	+ "," +
+#ifdef __APPLE__
 							   QString::number(settings->consoleOpacity)			+ ");}");
+#else
+                               QString::number(255)			+ ");}");
+#endif
 
+#ifdef __APPLE__
 	ui->statusBar->setStyleSheet("background-color: rgba(" +
 							   QString::number(settings->backgroundColor.red())	+ "," +
 							   QString::number(settings->backgroundColor.green())	+ "," +
 							   QString::number(settings->backgroundColor.blue())	+ "," +
 							   QString::number(settings->consoleOpacity)			+ ");");
-
+#endif
 	changeFormat(m_c.format());
 }
 

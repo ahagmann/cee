@@ -6,9 +6,9 @@
 all: app/cee
 
 app/cee:
-	cd cee-core; qmake CONF+=release
+	cd cee-core; qmake CONFIG+=release
 	cd cee-core; make
-	cd app; qmake CONF+=release
+	cd app; qmake CONFIG+=release
 	cd app; make
 
 clean:

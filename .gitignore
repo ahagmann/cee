@@ -3,3 +3,7 @@
 todo.txt
 *.user
 *~
+*.Debug
+*.Release
+debug
+release

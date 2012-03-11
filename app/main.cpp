@@ -26,7 +26,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #include "scanner.h"
 #include "calc.h"
 #include "miniconsole.h"
+#ifndef GUI_ONLY
 #include "commandline.h"
+#endif
 #include "settings.h"
 #include <iostream>
 
