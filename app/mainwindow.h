@@ -56,6 +56,10 @@ private slots:
 
 	void on_actionOcatal_oct_triggered();
 
+	void on_actionExit_triggered();
+
+	void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
 	Calc &m_c;

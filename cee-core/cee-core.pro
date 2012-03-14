@@ -49,4 +49,6 @@ HEADERS += \
     exception.h \
     commandnode.h \
     calcexception.h \
-    calc.h
+    calc.h \
+    version.h
+

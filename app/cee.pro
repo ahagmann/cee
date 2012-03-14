@@ -9,9 +9,9 @@ QT       += core gui
 TARGET = cee
 TEMPLATE = app
 
-#mac {
-#  CONFIG -= app_bundle
-#}
+mac {
+  CONFIG -= app_bundle
+}
 
 windows {
 	DEFINES += GUI_ONLY
@@ -31,19 +31,27 @@ SOURCES += \
     miniconsole.cpp \
     mainwindow.cpp \
     main.cpp \
+    about.cpp
 
 HEADERS  += \
     settingswindow.h \
     settings.h \
     miniconsole.h \
     mainwindow.h \
-    commandline.h
+    commandline.h \
+    about.h
 
 FORMS    += \
     settingswindow.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    about.ui
 
 //DEFINES += GUI_ONLY
+
+
+
+
+
 
 
 

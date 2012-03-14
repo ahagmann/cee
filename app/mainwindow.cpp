@@ -23,6 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include "settingswindow.h"
+#include "about.h"
 
 MainWindow::MainWindow(Calc &c, QWidget *parent) : m_c(c), QMainWindow(parent), ui(new Ui::MainWindow) {
 	ui->setupUi(this);
@@ -217,4 +218,14 @@ void MainWindow::on_actionSI_Units_siu_triggered() {
 void MainWindow::on_actionOcatal_oct_triggered() {
 	m_c.setFormat(OCT);
 	changeFormat(OCT);
+}
+
+void MainWindow::on_actionExit_triggered() {
+	close();
+}
+
+void MainWindow::on_actionAbout_triggered() {
+	About w(this);
+
+	w.exec();
 }

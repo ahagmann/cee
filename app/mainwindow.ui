@@ -79,14 +79,15 @@
      <x>0</x>
      <y>0</y>
      <width>488</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
-     <string>Settings</string>
+     <string>cee</string>
     </property>
     <addaction name="actionPreferences"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuFormat">
     <property name="title">
@@ -99,8 +100,16 @@
     <addaction name="actionHex_hex"/>
     <addaction name="actionOcatal_oct"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionDocumentaion"/>
+    <addaction name="actionAbout"/>
+   </widget>
    <addaction name="menuSettings"/>
    <addaction name="menuFormat"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="autoFillBackground">
@@ -158,6 +167,21 @@
    </property>
    <property name="text">
     <string>Ocatal (:oct)</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionDocumentaion">
+   <property name="text">
+    <string>Documentation</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
    </property>
   </action>
  </widget>

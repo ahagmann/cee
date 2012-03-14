@@ -31,6 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #endif
 #include "settings.h"
 #include <iostream>
+#include "version.h"
 
 using namespace std;
 
@@ -40,6 +41,23 @@ using namespace std;
 #if (defined(GUI_ONLY) && defined(CMD_ONLY))
 #error cannot combine "gui only" and "cmd only"
 #endif
+
+void usage() {
+	std::cout << "USAGE: cee [ -i | -g | -v | -h] [ immediate input ]"	<< std::endl;
+	std::cout													<< std::endl;
+	std::cout << "    -i, --interactive   read input from stdin"	<< std::endl;
+	std::cout << "    -g, --gui           open gui window"			<< std::endl;
+	std::cout << "    -v, --version       print version"			<< std::endl;
+	std::cout << "    -h, --help          print usage info"			<< std::endl;
+	std::cout													<< std::endl;
+	std::cout << "Immediate inpute is always processed before any"	<< std::endl;
+	std::cout << "other action is performed."						<< std::endl;
+	std::cout << "If -i and -g are specified simultaniously, first"	<< std::endl;
+	std::cout << "input from stdin is processed until EOF is read,"	<< std::endl;
+	std::cout << "then the gui window is started."					<< std::endl;
+	std::cout << "If no immediate input is given, cee start"		<< std::endl;
+	std::cout << "in interactive mode."							<< std::endl;
+}
 
 int main(int argc, char *argv[]) {
 	result_t result;
@@ -61,6 +79,16 @@ int main(int argc, char *argv[]) {
 		if (i.peekNext() == "-i" || i.peekNext() == "--interactive") {			// option
 					interactive = true;
 					i.next();
+		}
+		else if (i.peekNext() == "-v" || i.peekNext() == "--version") {			// option
+			ret = 0;
+			std::cout << "cee - Version " << VERSION_STRING << std::endl;
+			goto error;
+		}
+		else if (i.peekNext() == "-h" || i.peekNext() == "--help") {			// option
+			ret = 0;
+			usage();
+			goto error;
 		}
 		else if (i.peekNext() == "-g" || i.peekNext() == "--gui") {				// option
 #ifndef CMD_ONLY
