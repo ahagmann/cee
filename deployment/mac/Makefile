@@ -12,13 +12,15 @@ gui-app: core
 	cd ../../app; make
 	mkdir -p build
 	cp -r ../../app/cee.app build
+	cp -r ../../app/qt_menu.nib build/cee.app/Contents/Resources
 	cd ../../app; make distclean
 
 cli-app: core
 	cd ../../app; qmake -r -spec macx-g++ CONFIG+=release CONFIG-=app_bundle
 	cd ../../app; make
-	mkdir -p build
-	cp ../../app/cee build
+	mkdir -p build/commandline
+	cp ../../app/cee build/commandline
+	cp -r ../../app/qt_menu.nib build/commandline
 	cd ../../app; make distclean
 
 disk: gui-app cli-app
@@ -30,9 +32,10 @@ parser:
 
 clean:
 	-cd ../../cee-core; make distclean
-	rm -rf build
+	-cd ../../app; make distclean
+	-rm -rf build
 
 distclean: clean
-	rm cee.dmg
+	-rm cee.dmg
 
 

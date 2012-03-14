@@ -34,6 +34,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 using namespace std;
 
+//#define GUI_ONLY
+//#define CMD_ONLY
+
+#if (defined(GUI_ONLY) && defined(CMD_ONLY))
+#error cannot combine "gui only" and "cmd only"
+#endif
+
 int main(int argc, char *argv[]) {
 	result_t result;
 	int ret;
@@ -51,12 +58,16 @@ int main(int argc, char *argv[]) {
 	QStringListIterator i(a->arguments());
 	i.next();																// skip program name
 	while (i.hasNext()) {														// parse options
-		if (i.peekNext() == "-g" || i.peekNext() == "--gui") {					// option
-			gui = true;
-			i.next();
+		if (i.peekNext() == "-i" || i.peekNext() == "--interactive") {			// option
+					interactive = true;
+					i.next();
 		}
-		else if (i.peekNext() == "-i" || i.peekNext() == "--interactive") {		// option
-			interactive = true;
+		else if (i.peekNext() == "-g" || i.peekNext() == "--gui") {				// option
+#ifndef CMD_ONLY
+			gui = true;
+#else
+			std::cout << "This version does not support gui mode." << std::endl;
+#endif
 			i.next();
 		}
 		else {
@@ -78,7 +89,6 @@ int main(int argc, char *argv[]) {
 	//qDebug() << "gui: " << gui;
 	//qDebug() << "interactive: " << interactive;
 	//qDebug() << "immediate input:" << immediateInput;
-
 	if (gui == false) {														// cli only
 		commandLine cmd(c);
 

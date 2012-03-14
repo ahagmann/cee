@@ -7,3 +7,9 @@ todo.txt
 *.Release
 debug
 release
+*.a
+*.dmg
+*.zip
+*.nib
+build
+
