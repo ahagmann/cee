@@ -24,6 +24,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #include <QDebug>
 #include "settingswindow.h"
 #include "about.h"
+#include <QDesktopServices>
+#include <QUrl>
 
 MainWindow::MainWindow(Calc &c, QWidget *parent) : m_c(c), QMainWindow(parent), ui(new Ui::MainWindow) {
 	ui->setupUi(this);
@@ -228,4 +230,8 @@ void MainWindow::on_actionAbout_triggered() {
 	About w(this);
 
 	w.exec();
+}
+
+void MainWindow::on_actionDocumentaion_triggered() {
+	QDesktopServices::openUrl(QUrl("http://code.google.com/p/cee/wiki/Documentation"));
 }

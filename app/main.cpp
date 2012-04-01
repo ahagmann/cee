@@ -50,12 +50,12 @@ void usage() {
 	std::cout << "    -v, --version       print version"			<< std::endl;
 	std::cout << "    -h, --help          print usage info"			<< std::endl;
 	std::cout													<< std::endl;
-	std::cout << "Immediate inpute is always processed before any"	<< std::endl;
+	std::cout << "Immediate input is always processed before any"	<< std::endl;
 	std::cout << "other action is performed."						<< std::endl;
 	std::cout << "If -i and -g are specified simultaniously, first"	<< std::endl;
 	std::cout << "input from stdin is processed until EOF is read,"	<< std::endl;
 	std::cout << "then the gui window is started."					<< std::endl;
-	std::cout << "If no immediate input is given, cee start"		<< std::endl;
+	std::cout << "If no immediate input is given, cee starts"		<< std::endl;
 	std::cout << "in interactive mode."							<< std::endl;
 }
 

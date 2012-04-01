@@ -60,6 +60,8 @@ private slots:
 
 	void on_actionAbout_triggered();
 
+	void on_actionDocumentaion_triggered();
+
 private:
     Ui::MainWindow *ui;
 	Calc &m_c;

@@ -33,7 +33,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 using namespace std;
 
 Calc::Calc() : m_format(DEC), m_result(0), m_quit(false) {
-	ValueTable::setConstant("pi", 3.14);
+	ValueTable::setConstant("pi", M_PI);
 	ValueTable::setVariable("ans", 0);
 }
 

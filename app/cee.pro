@@ -9,9 +9,11 @@ QT       += core gui
 TARGET = cee
 TEMPLATE = app
 
-mac {
-  CONFIG -= app_bundle
-}
+#mac {
+#  CONFIG -= app_bundle
+#}
+
+ICON = icon.icns
 
 windows {
 	DEFINES += GUI_ONLY

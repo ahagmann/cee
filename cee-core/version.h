@@ -5,6 +5,6 @@
 #define VERSION_MINOR		1
 #define VERSION_REVISION	0
 
-#define VERSION_STRING	"0.1.0"
+#define VERSION_STRING	"0.1.0rc"
 
 #endif

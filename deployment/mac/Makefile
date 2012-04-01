@@ -1,4 +1,4 @@
-
+VERSION := $(shell grep VERSION_STRING ../../cee-core/version.h | cut -d'"' -f 2)
 
 all: disk
 	
@@ -25,7 +25,7 @@ cli-app: core
 
 disk: gui-app cli-app
 	hdiutil create /tmp/tmp.dmg -ov -volname "cee" -fs HFS+ -srcfolder "build"
-	hdiutil convert /tmp/tmp.dmg -format UDZO -o cee.dmg
+	hdiutil convert /tmp/tmp.dmg -format UDZO -o cee-$(VERSION)-mac.dmg
 
 parser:
 	cd ../../cee-core; make -f MakefileParser
@@ -36,6 +36,6 @@ clean:
 	-rm -rf build
 
 distclean: clean
-	-rm cee.dmg
+	-rm cee*.dmg
 
 
