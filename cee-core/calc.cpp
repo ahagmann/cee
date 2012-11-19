@@ -164,7 +164,7 @@ QString Calc::getResult() const {
 	QString res;
 	int pot;
 	number_t div;
-	char si;
+	char si = ' ';
 
 	res += " = ";
 	switch(m_formatOverride) {
@@ -183,7 +183,7 @@ QString Calc::getResult() const {
 	case ENG:
 		pot = 0;
 		div = 1;
-		if (fabs(m_result) > 1) {
+		if (fabs(m_result) >= 1) {
 			while (fabs(m_result) >= (div*1000)) {
 				div *= 1000;
 				pot++;
@@ -204,7 +204,7 @@ QString Calc::getResult() const {
 	case SIU:
 		pot = 0;
 		div = 1;
-		if (fabs(m_result) > 1) {
+		if (fabs(m_result) >= 1000) {
 			while (fabs(m_result) >= (div*1000)) {
 				if (pot == 8) break;
 				div *= 1000;
@@ -236,13 +236,11 @@ QString Calc::getResult() const {
 			case 8:
 				si = 'Y';
 				break;
-			default:
-				si = 0;
 			}
 
 			res += QString::number(m_result/div) + si;
 		}
-		else if (m_result == 0) {
+		else if (m_result >= 0) {
 			res += QString::number(m_result);
 		}
 		else {
