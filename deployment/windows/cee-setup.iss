@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "cee"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.0.0"
 #define MyAppURL "http://code.google.com/p/cee/"
 #define MyAppExeName "cee.exe"
 
